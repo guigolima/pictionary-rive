@@ -11,20 +11,17 @@ import DrawingCanvas from "../../components/DrawingCanvas";
 import styles from "./styles";
 
 const App = () => {
-  // State
   const [paths, setPaths] = useState<string[]>([]);
   const [guess, setGuess] = useState("");
   const [isDrawing, setIsDrawing] = useState(true);
   const [isRightGuess, setIsRightGuess] = useState(false);
   const [isWrongGuess, setIsWrongGuess] = useState(false);
 
-  // Store
   const score = useGameStore((state) => state.score);
   const setScore = useGameStore((state) => state.setScore);
   const currentIndex = useGameStore((state) => state.currentIndex);
   const setCurrentIndex = useGameStore((state) => state.setCurrentIndex);
 
-  // Handlers
   const handleGuess = useCallback(() => {
     const checkAnswer =
       guess.trim().toLowerCase() === words[currentIndex].toLowerCase();
