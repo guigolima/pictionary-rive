@@ -1,0 +1,97 @@
+import { StyleSheet } from "react-native";
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+    backgroundColor: "#e3f0ff",
+    alignItems: "center",
+    justifyContent: "flex-start",
+  },
+  header: {
+    fontSize: 32,
+    fontWeight: "bold",
+    marginBottom: 20,
+    color: "#2d2d2d",
+    letterSpacing: 1.2,
+    textAlign: "center",
+  },
+  topRow: {
+    flexDirection: "row",
+    width: "100%",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    marginBottom: 16,
+  },
+  leftCol: {
+    flex: 2,
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+  },
+  rightCol: {
+    flex: 1,
+    justifyContent: "flex-start",
+    alignItems: "flex-end",
+  },
+  scoreLabel: {
+    fontSize: 20,
+    color: "#888",
+    fontWeight: "bold",
+    marginRight: 4,
+  },
+  scoreValue: {
+    fontSize: 28,
+    fontWeight: "bold",
+    color: "#4caf50",
+    textShadowColor: "#b2f2bb",
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 6,
+    marginLeft: 6,
+  },
+  wordLabel: {
+    fontSize: 18,
+    color: "#1976d2",
+    fontWeight: "bold",
+    marginBottom: 4,
+  },
+  word: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "#1976d2",
+    marginBottom: 8,
+    textShadowColor: "#b3d1fa",
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 6,
+  },
+  input: {
+    width: "100%",
+    maxWidth: 400,
+    borderWidth: 1,
+    borderColor: "#bbb",
+    borderRadius: 8,
+    padding: 12,
+    fontSize: 16,
+    marginBottom: 12,
+    backgroundColor: "#f9f9f9",
+    color: "#222",
+  },
+  loadingOverlay: {
+    backgroundColor: "rgba(0,0,0,0.4)",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 10,
+  },
+  loadingText: {
+    color: "#fff",
+    fontSize: 22,
+    fontWeight: "bold",
+    backgroundColor: "rgba(25, 118, 210, 0.85)",
+    paddingHorizontal: 32,
+    paddingVertical: 18,
+    borderRadius: 16,
+    overflow: "hidden",
+    textAlign: "center",
+  },
+});
+
+export default styles;
