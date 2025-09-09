@@ -2,9 +2,9 @@ import React, { useRef, useMemo } from "react";
 import { View, PanResponder, StyleSheet } from "react-native";
 import Svg, { Path } from "react-native-svg";
 
-import { DrawingCanvasProps, Point } from "./types";
-
 import styles from "./styles";
+
+import { DrawingCanvasProps, Point } from "./types";
 
 const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
   paths,
@@ -55,7 +55,7 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
     >
       <Svg style={StyleSheet.absoluteFill}>
         {paths.map((d, i) => (
-          <Path key={i} d={d} stroke="#222" strokeWidth={4} fill="none" />
+          <Path key={i} d={d} stroke="black" strokeWidth={4} fill="none" />
         ))}
       </Svg>
     </View>

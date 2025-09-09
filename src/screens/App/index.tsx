@@ -11,25 +11,26 @@ import DrawingCanvas from "../../components/DrawingCanvas";
 import styles from "./styles";
 
 const App = () => {
+  // State
   const [paths, setPaths] = useState<string[]>([]);
   const [guess, setGuess] = useState("");
   const [isDrawing, setIsDrawing] = useState(true);
   const [isRightGuess, setIsRightGuess] = useState(false);
   const [isWrongGuess, setIsWrongGuess] = useState(false);
 
+  // Store
   const score = useGameStore((state) => state.score);
   const setScore = useGameStore((state) => state.setScore);
   const currentIndex = useGameStore((state) => state.currentIndex);
   const setCurrentIndex = useGameStore((state) => state.setCurrentIndex);
 
+  // Handlers
   const handleGuess = useCallback(() => {
     const checkAnswer =
       guess.trim().toLowerCase() === words[currentIndex].toLowerCase();
-
     if (checkAnswer) {
       setScore(score + 1);
       setIsRightGuess(true);
-
       setTimeout(() => handleResetGame(), 1500);
     } else {
       setGuess("");
@@ -110,8 +111,8 @@ const App = () => {
           />
         </>
       )}
-      {isWrongGuess && <AnswerOverlay result={"wrong"} />}
-      {isRightGuess && <AnswerOverlay result={"right"} />}
+      {isWrongGuess && <AnswerOverlay result="wrong" />}
+      {isRightGuess && <AnswerOverlay result="right" />}
     </SafeAreaView>
   );
 };
