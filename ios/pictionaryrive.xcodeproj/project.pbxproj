@@ -19,6 +19,10 @@
 		D873A82701714A96B15ADC7E /* splash-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D9571E170C84120BB129BF5 /* splash-icon.png */; };
 		D879069FA56D32166BEAB880 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 9FAE6D8EFD31C1E07B233B1F /* PrivacyInfo.xcprivacy */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
+		3524630629444E27999F4140 /* correct.riv in Resources */ = {isa = PBXBuildFile; fileRef = CF8288E0795242918C202A60 /* correct.riv */; };
+		DE3756BA22124D159316A803 /* drawing_kitty.riv in Resources */ = {isa = PBXBuildFile; fileRef = D6DC9115C68D4D4187CC250D /* drawing_kitty.riv */; };
+		9638C3F6A5EA484895C170EE /* error_icon.riv in Resources */ = {isa = PBXBuildFile; fileRef = 491B83E35982442A9BA943AA /* error_icon.riv */; };
+		F8A125C8AAD04F0FB143F6E7 /* error.riv in Resources */ = {isa = PBXBuildFile; fileRef = E017696AC0B2406D85F702E9 /* error.riv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,10 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = pictionaryrive/AppDelegate.swift; sourceTree = "<group>"; };
 		F11748442D0722820044C1D9 /* pictionaryrive-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "pictionaryrive-Bridging-Header.h"; path = "pictionaryrive/pictionaryrive-Bridging-Header.h"; sourceTree = "<group>"; };
+		CF8288E0795242918C202A60 /* correct.riv */ = {isa = PBXFileReference; name = "correct.riv"; path = "Assets/correct.riv"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D6DC9115C68D4D4187CC250D /* drawing_kitty.riv */ = {isa = PBXFileReference; name = "drawing_kitty.riv"; path = "Assets/drawing_kitty.riv"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		491B83E35982442A9BA943AA /* error_icon.riv */ = {isa = PBXFileReference; name = "error_icon.riv"; path = "Assets/error_icon.riv"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E017696AC0B2406D85F702E9 /* error.riv */ = {isa = PBXFileReference; name = "error.riv"; path = "Assets/error.riv"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +103,10 @@
 				566353ACE196487AAEBE5CB5 /* fireworks.riv */,
 				ECCB3B8B87B246C398C425B2 /* icon.png */,
 				8D9571E170C84120BB129BF5 /* splash-icon.png */,
+				CF8288E0795242918C202A60 /* correct.riv */,
+				D6DC9115C68D4D4187CC250D /* drawing_kitty.riv */,
+				491B83E35982442A9BA943AA /* error_icon.riv */,
+				E017696AC0B2406D85F702E9 /* error.riv */,
 			);
 			name = Assets;
 			path = "";
@@ -226,6 +238,10 @@
 				588B957CF7FF47E5B26BC4D8 /* icon.png in Resources */,
 				D873A82701714A96B15ADC7E /* splash-icon.png in Resources */,
 				D879069FA56D32166BEAB880 /* PrivacyInfo.xcprivacy in Resources */,
+				3524630629444E27999F4140 /* correct.riv in Resources */,
+				DE3756BA22124D159316A803 /* drawing_kitty.riv in Resources */,
+				9638C3F6A5EA484895C170EE /* error_icon.riv in Resources */,
+				F8A125C8AAD04F0FB143F6E7 /* error.riv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,7 +406,7 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.guigolima97.pictionaryrive;
-				PRODUCT_NAME = pictionaryrive;
+				PRODUCT_NAME = "pictionaryrive";
 				SWIFT_OBJC_BRIDGING_HEADER = "pictionaryrive/pictionaryrive-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -421,7 +437,7 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = com.guigolima97.pictionaryrive;
-				PRODUCT_NAME = pictionaryrive;
+				PRODUCT_NAME = "pictionaryrive";
 				SWIFT_OBJC_BRIDGING_HEADER = "pictionaryrive/pictionaryrive-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

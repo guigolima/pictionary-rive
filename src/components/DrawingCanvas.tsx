@@ -14,7 +14,11 @@ interface DrawingCanvasProps {
   disabled?: boolean;
 }
 
-const DrawingCanvas: React.FC<DrawingCanvasProps> = ({ paths, setPaths, disabled = false }) => {
+const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
+  paths,
+  setPaths,
+  disabled = false,
+}) => {
   const current = useRef<Point[] | null>(null);
 
   const panResponder = useMemo(
@@ -35,8 +39,10 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({ paths, setPaths, disabled
           current.current.push({ x, y });
           setPaths((prev) => {
             const newPaths = [...prev];
-            const d = current.current!
-              .map((p, i) => (i === 0 ? `M ${p.x} ${p.y}` : `L ${p.x} ${p.y}`))
+            const d = current
+              .current!.map((p, i) =>
+                i === 0 ? `M ${p.x} ${p.y}` : `L ${p.x} ${p.y}`
+              )
               .join(" ");
             newPaths[newPaths.length - 1] = d;
             return newPaths;
@@ -51,7 +57,10 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({ paths, setPaths, disabled
   );
 
   return (
-    <View style={styles.container} {...(!disabled ? panResponder.panHandlers : {})}>
+    <View
+      style={styles.container}
+      {...(!disabled ? panResponder.panHandlers : {})}
+    >
       <Svg style={StyleSheet.absoluteFill}>
         {paths.map((d, i) => (
           <Path key={i} d={d} stroke="#222" strokeWidth={4} fill="none" />
@@ -63,9 +72,8 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({ paths, setPaths, disabled
 
 const styles = StyleSheet.create({
   container: {
-    height: 400,
+    height: 300,
     width: "100%",
-    maxWidth: 400,
     borderWidth: 2,
     borderColor: "#1976d2",
     borderRadius: 16,

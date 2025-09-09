@@ -2,11 +2,11 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import Rive from "rive-react-native";
 
-export default function WrongGuessOverlay() {
+export default function RightGuessOverlay() {
   return (
     <View style={styles.overlay} pointerEvents="none">
       <Rive
-        resourceName="error"
+        resourceName="correct"
         style={{ width: "100%", maxHeight: 300 }}
         autoplay={true}
       />

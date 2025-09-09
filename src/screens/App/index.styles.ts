@@ -92,6 +92,33 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     textAlign: "center",
   },
+  topBackgroundContainer: {
+    width: "100%",
+    height: 220,
+    position: "relative",
+    justifyContent: "center",
+    alignItems: "center",
+    overflow: "hidden",
+    borderRadius: 18,
+  },
+  riveBackground: {
+    ...StyleSheet.absoluteFillObject,
+    width: "100%",
+    maxHeight: 320,
+    zIndex: 0,
+  },
+  topContentOverlay: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    zIndex: 1,
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: 8,
+    backgroundColor: "rgba(255,255,255,0.15)",
+  },
 });
 
 export default styles;

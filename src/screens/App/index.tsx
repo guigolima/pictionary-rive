@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { SafeAreaView, View, Text, TextInput } from "react-native";
 
 import DrawingCanvas from "../../components/DrawingCanvas";
-import CelebrationOverlay from "../../components/CelebrationOverlay";
+
 import WrongGuessOverlay from "../../components/WrongGuessOverlay";
 import { useGameStore } from "../../store/gameStore";
 import MenuButton from "../../components/MenuButton";
 import { words } from "../../utils/wordList";
 import styles from "./index.styles";
+import Rive from "rive-react-native";
+import RightGuessOverlay from "../../components/RightGuessOverlay";
 
 const App = () => {
   const [paths, setPaths] = useState<string[]>([]);
@@ -33,7 +35,7 @@ const App = () => {
     } else {
       setGuess("");
       setIsWrongGuess(true);
-      setTimeout(() => setIsWrongGuess(false), 1000);
+      setTimeout(() => setIsWrongGuess(false), 2500);
     }
   };
 
@@ -58,20 +60,33 @@ const App = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.header}>Pictionary</Text>
-      <View style={styles.topRow}>
-        <View style={styles.leftCol}>
-          {isDrawing && (
-            <Text style={styles.wordLabel}>
-              Draw this: {words[currentIndex]}
-            </Text>
-          )}
-        </View>
-        <View style={styles.rightCol}>
-          <Text style={styles.scoreLabel}>Score: {score}</Text>
+      <View style={styles.topBackgroundContainer}>
+        <Rive
+          resourceName="drawing_kitty"
+          style={styles.riveBackground}
+          autoplay={true}
+        />
+        <View style={styles.topContentOverlay}>
+          <Text style={styles.header}>Pictionary</Text>
+          <View style={styles.topRow}>
+            <View style={styles.leftCol}>
+              {isDrawing && (
+                <Text style={styles.wordLabel}>
+                  Draw this: {words[currentIndex]}
+                </Text>
+              )}
+            </View>
+            <View style={styles.rightCol}>
+              <Text style={styles.scoreLabel}>Score: {score}</Text>
+            </View>
+          </View>
         </View>
       </View>
-      <DrawingCanvas paths={paths} setPaths={setPaths} disabled={!isDrawing} />
+      <DrawingCanvas
+        paths={paths || []}
+        setPaths={setPaths}
+        disabled={!isDrawing}
+      />
       {isDrawing ? (
         <MenuButton text="Done Drawing" onPress={handleDoneDrawing} />
       ) : (
@@ -99,10 +114,7 @@ const App = () => {
         </>
       )}
       {isWrongGuess && <WrongGuessOverlay />}
-      <CelebrationOverlay
-        isCelebrating={isRightGuess}
-        style={{ width: 200, height: 200 }}
-      />
+      {isRightGuess && <RightGuessOverlay />}
     </SafeAreaView>
   );
 };
