@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { SafeAreaView, View, Text, TextInput } from "react-native";
+import Rive from "rive-react-native";
 
-import DrawingCanvas from "../../components/DrawingCanvas";
-
-import WrongGuessOverlay from "../../components/WrongGuessOverlay";
 import { useGameStore } from "../../store/gameStore";
 import MenuButton from "../../components/MenuButton";
 import { words } from "../../utils/wordList";
-import styles from "./index.styles";
-import Rive from "rive-react-native";
-import RightGuessOverlay from "../../components/RightGuessOverlay";
+import AnswerOverlay from "../../components/AnswerOverlay";
+import DrawingCanvas from "../../components/DrawingCanvas";
+
+import styles from "./styles";
 
 const App = () => {
   const [paths, setPaths] = useState<string[]>([]);
@@ -23,7 +22,7 @@ const App = () => {
   const currentIndex = useGameStore((state) => state.currentIndex);
   const setCurrentIndex = useGameStore((state) => state.setCurrentIndex);
 
-  const handleGuess = () => {
+  const handleGuess = useCallback(() => {
     const checkAnswer =
       guess.trim().toLowerCase() === words[currentIndex].toLowerCase();
 
@@ -37,26 +36,26 @@ const App = () => {
       setIsWrongGuess(true);
       setTimeout(() => setIsWrongGuess(false), 2500);
     }
-  };
+  }, [guess, currentIndex, score, setScore]);
 
-  const handleResetGame = () => {
+  const handleResetGame = useCallback(() => {
     setIsRightGuess(false);
     setCurrentIndex((currentIndex + 1) % words.length);
     setPaths([]);
     setIsDrawing(true);
     setGuess("");
-  };
+  }, [currentIndex, setCurrentIndex]);
 
-  const handleGiveUp = () => {
+  const handleGiveUp = useCallback(() => {
     setCurrentIndex((currentIndex + 1) % words.length);
     setPaths([]);
     setIsDrawing(true);
     setGuess("");
-  };
+  }, [currentIndex, setCurrentIndex]);
 
-  const handleDoneDrawing = () => {
+  const handleDoneDrawing = useCallback(() => {
     setIsDrawing(false);
-  };
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -70,10 +69,12 @@ const App = () => {
           <Text style={styles.header}>Pictionary</Text>
           <View style={styles.topRow}>
             <View style={styles.leftCol}>
-              {isDrawing && (
+              {isDrawing ? (
                 <Text style={styles.wordLabel}>
                   Draw this: {words[currentIndex]}
                 </Text>
+              ) : (
+                <Text style={styles.wordLabel}>Guess the drawing!</Text>
               )}
             </View>
             <View style={styles.rightCol}>
@@ -82,11 +83,7 @@ const App = () => {
           </View>
         </View>
       </View>
-      <DrawingCanvas
-        paths={paths || []}
-        setPaths={setPaths}
-        disabled={!isDrawing}
-      />
+      <DrawingCanvas paths={paths} setPaths={setPaths} disabled={!isDrawing} />
       {isDrawing ? (
         <MenuButton text="Done Drawing" onPress={handleDoneDrawing} />
       ) : (
@@ -113,8 +110,8 @@ const App = () => {
           />
         </>
       )}
-      {isWrongGuess && <WrongGuessOverlay />}
-      {isRightGuess && <RightGuessOverlay />}
+      {isWrongGuess && <AnswerOverlay result={"wrong"} />}
+      {isRightGuess && <AnswerOverlay result={"right"} />}
     </SafeAreaView>
   );
 };

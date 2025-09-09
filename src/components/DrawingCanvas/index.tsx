@@ -2,17 +2,9 @@ import React, { useRef, useMemo } from "react";
 import { View, PanResponder, StyleSheet } from "react-native";
 import Svg, { Path } from "react-native-svg";
 
-// Types
-interface Point {
-  x: number;
-  y: number;
-}
+import { DrawingCanvasProps, Point } from "./types";
 
-interface DrawingCanvasProps {
-  paths: string[];
-  setPaths: React.Dispatch<React.SetStateAction<string[]>>;
-  disabled?: boolean;
-}
+import styles from "./styles";
 
 const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
   paths,
@@ -69,18 +61,5 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    height: 300,
-    width: "100%",
-    borderWidth: 2,
-    borderColor: "#1976d2",
-    borderRadius: 16,
-    marginBottom: 16,
-    backgroundColor: "#fff",
-    overflow: "hidden",
-  },
-});
 
 export default DrawingCanvas;
