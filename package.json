@@ -2,7 +2,7 @@
   "name": "pictionary-rive",
   "license": "0BSD",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "index.tsx",
   "scripts": {
     "start": "expo start --dev-client",
     "android": "expo run:android",
@@ -12,6 +12,7 @@
   "dependencies": {
     "expo": "~53.0.22",
     "expo-asset": "^11.1.7",
+    "expo-custom-assets": "^1.5.0",
     "expo-dev-client": "~5.2.4",
     "expo-status-bar": "~2.2.3",
     "react": "19.0.0",
